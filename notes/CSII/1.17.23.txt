@@ -1,0 +1,154 @@
+//------------------------------------------->
+IC Ex1 Review:
+
+Write the nested loops that will print out a pyramid, 3 rows high, 5 cols wide, exactly as depicted:
+
+        *
+       ***
+      *****
+
+int rows = 3;
+for(int i = 0; i < rows; i++)
+{
+
+}
+
+//------------------------------------------->
+
+Write the input statement to accept a string called bigStr:
+
+getline(cin, bigStr);
+
+//------------------------------------------->
+
+Given the following, weite the code to count up the number of records read from the file (add one per each line or obsevation), 
+and also write the record to the array.
+Assume the file contains valid integers.
+
+int numbers[10];
+int count = 0;
+istream infile;
+infile.open("TenNumbers.txt");
+
+        while(count < 10 && infile >> number(count));
+            count++
+    // getline not good for reading numerical values
+
+//------------------------------------------->
+
+Write code for function isitOdd (int parameter, returns true if odd)
+
+bool isitOdd(int num)
+{                                   
+    if(num%2 == 1)                          //can also just do return num%2==1;
+        return true;                            
+    else
+        return false;
+}
+
+//------------------------------------------->
+
+int *intPtrArr[20]
+
+
+for(int i = 0; i < 20; i++)
+{
+    intPtrArr[i] = new int;
+}
+
+//------------------------------------------->
+                Actual Lecture
+//------------------------------------------->
+
+Classes
+-------
+
+-Similar to struct, but more functionalities 
+
+OOP (object-oriented programming) = encapsulated states + inheritance
+
+Object:
+    -An entity with unique identity that encapsulate state
+    -state can be accessed in a controlled wat from outside
+    -the access is provided by means of methods (procedures that can directly access the internal state)
+
+Class: 
+    -A specification of objects in an incremental way
+    -By inheriting from other classes
+    -And spcifying how its objects (instances) differ from the objects of the inherited classes
+
+// You hire someone to do tasks for you (but you make that person yourself (class))
+
+    Object = entity created in Class 
+
+EX:
+
+Fetching webpage
+----------------
+
+Procedure Programming:
+
+    ???
+
+Object-Oriented Programming:
+
+    HttpRequest aPageRequestor
+    aPageRequestor.port = 85;
+    aPageRequestor.proxy = false;
+    aPageRequestor.URL = "www.uakron.edu";
+    aPageRequestor.fetch();
+
+Class is like blueprint, Object is actual buildings created from blueprint
+
+//------------------------------------------->
+Triangle Class 
+
+Conceptual level: 
+    Responsibilities:
+        -calculate area
+        -calculate angles
+
+Specification level:
+    Attributes:
+        -Base
+        -Height
+
+Implementation level:
+    Write the code
+
+//------------------------------------------->
+Writing a Class
+
+    class ClassName
+    {
+        declaration;
+        declaration;
+    };
+
+class Rectangle
+{
+    private:
+        double width;           //CANNOT use .operator to access
+        double height;
+    public:
+        void setWidth(double);
+        void setHeight(double);    //CAN use .operator to access
+        double getWidth() const;
+        double getLength() const;
+        double getArea() const;      
+};  --------const- cannot change data passed through it 
+
+//------------------------------------------->
+Writing member function:
+
+void Rectangle::setWidth(double width)
+{
+    this -> width = width; 
+    |-----------|
+      Refers to 
+      class member  
+}
+
+Rectangle xyz;
+xyz.setWidth(5.2);
+std::cout<<xyz.getWidth();
