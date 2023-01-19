@@ -4,7 +4,7 @@
 #include "TaxDataType.hpp"
 #include <vector>
 
-void taxTake(std::vector<taxInfo>, taxInfo);
-void taxPrint(std::vector<taxInfo>, taxInfo);
+void taxTake(std::vector<taxInfo>, taxInfo&);
+void printTax(std::vector<taxInfo>, taxInfo&);
 
 #endif

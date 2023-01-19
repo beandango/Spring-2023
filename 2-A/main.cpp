@@ -19,7 +19,7 @@ int main()
     taxInfo tax;
 
     taxTake(payers, tax);
-    taxPrint(payers, tax);
+    printTax(payers, tax);
 
     return 0;
 }
