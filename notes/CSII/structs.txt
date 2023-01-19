@@ -1,0 +1,47 @@
+//--------------------------------------------->
+                Example Struct:
+//--------------------------------------------->
+struct InventoryItem
+{
+    int partNum;            //part number
+    string description;     //description
+    int onHand;             //how many of part on hand
+    double price;           //the price of the part
+};
+
+//--------------------------------------------->
+        Struct as function parameter:
+//--------------------------------------------->
+
+void showItem(const InventoryItem &p)       //read-only access to reference parameter, doesn't waste space
+{
+    cout << fixed << showpoint << serprecision(2);
+    cout << "Part number: " << p.partNum << endl;
+    cout << "Part Description: " << p.description << endl;
+    cout << "Units on hand: " << p.onHand << endl;
+    cout << "Part Price: $" << p.price << endl;
+}
+
+//--------------------------------------------->
+        Returning struct from function:
+//--------------------------------------------->
+
+struct Circle
+{
+    double radius;
+    double diameter;
+    double area;
+};
+
+//function prototype
+Circle getInfo();
+
+Circle getInfo()
+{
+    Circle tempCircle; //temp struct var
+    cout << "enter diameter of Circle: ";
+    cin >> tempCircle.diameter;
+    tempCircle.radius = tempCircle.diameter/2.0;
+
+    return tempCircle;
+}
