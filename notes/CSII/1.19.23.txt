@@ -1,0 +1,120 @@
+//------------------------------------------->
+            Class: Continued
+//------------------------------------------->
+
+Example:
+
+class Rectangle
+{
+    private:
+        double width;
+        double length;
+    public:
+    void setWidth(double);
+    void setLength(double);
+    double getWidth() const;
+    double getLength() const;
+    double getArea() const;
+};
+
+void Rectangle::setWidth(double width)
+{
+    this->width = w;
+}
+void Rectangle::setLength(double length)
+{
+    this->length = len;
+}
+
+double Rectangle::getWidth() const
+{
+    return length;
+}
+
+double Rectangle::getArea() const
+{
+    return width * length;
+}
+
+int main()
+{
+    Rectangle box;
+    double rectWidth;
+    double rectLength;
+
+    cout<<"what is the width";
+    cin>>rectWidth;
+    cout<<"length?";
+    cin>>rectLength;
+
+    box.setLength(rectLength);
+    box.setWidth(rectWidth);
+
+    cout<<"width: "<<box.getWidth()<<endl;
+    cout<<"length: "<<box.getLength()<<endl;
+    cout<<"area: "<<box.getArea()<<endl;
+
+    return 0;
+
+}
+
+//------------------------------------------->
+            Pointer to an Object
+//------------------------------------------->
+
+You can define a pointer to an Object
+    Rectangle *rptr = nullptr;
+
+Can access public members via pointer:
+    rptr = &otherRectangle;
+    rptr->setLength(12.5);
+    cout << rptr->getLength() << endl;
+
+//------------------------------------------->
+        Dynamically allocating an Object
+//------------------------------------------->
+
+//Define a Rectangle pointer
+Rectangle *rectPtr = nullptr;
+
+//Dynamically allocate a Rectangle Object
+rectPtr = new Rectangle;
+
+//store values in the objects width and length
+rectPtr->setWidth(10.0);
+rectPtr->setLength(15.0);
+
+//delete the object from memory
+delete rectPtr;
+rectPtr = nullptr;
+
+* Delete to prevent memory leaks
+
+//------------------------------------------->
+            Inline member functions
+//------------------------------------------->
+
+class Rectangle
+{
+    private:
+        double width;
+        double length;
+    public:
+        void setWidth(double);
+        void setLength(double);
+
+        double getWidth() const
+            { return width; }
+
+        double getLength() const
+            { return length; }
+
+        double getArea() const
+            { return length * width; }
+
+}; 
+
+* Inline member functions are NOT function calls 
+* It plugs in those statements into the code, increases exe size
+* But its faster
+* Consider using for small functions
