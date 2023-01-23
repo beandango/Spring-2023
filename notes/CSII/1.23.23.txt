@@ -1,0 +1,62 @@
+//------------------------------------------->
+        uniprocessors -> multiprocessors
+//------------------------------------------->
+
+-Instructions used by multicore processors to synchronize tasks
+
+-wider artithmetic units to operate on multiple operands simultaneously
+
+-Mechanisms to keep the data in all the caches consistent
+
+-RAIDS to improve I/O throughout and dependability
+
+-Challenges of parallel programming
+
+* Workload
+    Standard set of programs that represents how the computer is typically used 
+    Establishes a benchmark - against which many computer designers can compare performance
+
+
+Standard performance evaluation corp (SPEC)
+    Developes benchmarks for CPU, I/O, Wed,...
+
+SPEC CPU2006
+    Elapsed time to execute a selection of programs 
+
+nroot(Tau_1 ^n Execution Time ratio_i)
+
+SPEC Power benchmark
+
+Pitfall: Amdahl's law
+* Imporving an aspect of a computer and expecting a proportional improvement in overall performance
+
+    T_improved = T_affected/Improvement factor + T_unaffected
+
+Example: Suppose multiply accounts for 80s of 100s in a programming
+    How much Improvement in multiply performance to get 5x overall?
+    20 = 80/n + 20 // No value of n will satisfy
+
+Fallacy: Low power at idle
+* Look back at i7 power benchmark
+    at 100% load: 258W
+    at 50% load: 170W (66%)
+    at 10% load: 121W (47%)
+
+* Google data center
+    mostly operated at 10% - 50% load
+    at 100% load less than 1% of the time
+
+* Need processors to consume power proportional to load
+
+MIPS as performance metric:
+* MIPS: millions of instructions per second
+    doesnt account for:
+        Differences in ISAs between computers
+        Differences in complexity between instructions
+
+Encoding = packing
+
+Addressing modes: how processors knows how to go to next task
+
+Parallelism: 2 tasks run at the same time, or none at all
+
