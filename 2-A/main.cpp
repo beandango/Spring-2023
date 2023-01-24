@@ -9,15 +9,18 @@ know how to write a program that uses classes or structs.
 */
 
 #include "Tax.hpp"
+#include "Tax.cpp"
 #include "TaxDataType.hpp"
 #include <iostream>
 #include <vector>
 
 int main()
 {
+    // created a vector to store tax payer info
     std::vector<taxInfo> payers;
     taxInfo tax;
 
+    //function calls to collect info and then print infos
     taxTake(payers, tax);
     printTax(payers, tax);
 

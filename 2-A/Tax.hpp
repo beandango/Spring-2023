@@ -4,7 +4,8 @@
 #include "TaxDataType.hpp"
 #include <vector>
 
-void taxTake(std::vector<taxInfo>, taxInfo&);
-void printTax(std::vector<taxInfo>, taxInfo&);
+void taxTake(std::vector<taxInfo>&, taxInfo&);
+void printTax(std::vector<taxInfo>&, taxInfo&);
+bool isValid(float&);
 
 #endif
