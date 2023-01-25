@@ -1,0 +1,91 @@
+//------------------------------------------->
+            Memberwise Assignment
+//------------------------------------------->
+
+Can use = to assign one object to another, 
+or to initialize and object with another object's data
+
+//------------------------------------------->
+    Declaration of primitive data type:
+//------------------------------------------->
+
+int x;                      Rectangle aRect;
+intx(3);                    Rectangle aRect(3.0), bRect(4.4, 5.6);
+
+int x = 4;                  Rectangle a(3.0, 6.5);
+int y = x;                  Rectangle c(a);
+                                ||
+                             Constructor
+
+//------------------------------------------->
+                Constructors
+//------------------------------------------->
+
+- Same name as class
+- Like a function without a return
+- Automatically called whenever a new object of this class is created
+
+- Constructor w/o parameters is a default Constructor
+
+No parameters
+        Rectangle::Rectangle()
+        {
+            //do nothing
+        }
+Two parameters
+        Rectangle::Rectangle(double w, double l)
+        {
+            width = w;
+            length = l;
+        }
+One parameter
+        Rectangle::Rectangle(double w)
+        {
+            width = length = w;
+        }
+Copy Constructor //same as just memberwise assignment
+    Rectangle::Rectangle(const Rectangle& b)
+    {
+        width = b.width;
+        length = b.length;
+    }
+* Copy constructor is not necessary cause you can just do
+memberwise assignment and it writes the constructor for you
+
+//------------------------------------------->
+                Destructors
+//------------------------------------------->
+
+- Automatically called when object is destroyed
+- name is: ~classname
+    Ex. ~Rectangle
+- Cannot have more than 1 destructor 
+- No parameters 
+- no return type
+
+* If constructor allocates dynamic memory (pointers),
+you should write a destructor to release it
+
+Square();
+Square(int = 0); //technically two constructors, one with
+                    Square(0) and another Square()
+In the above case, Square() is written twice, 
+so delete the first Square()
+
+//------------------------------------------->
+            Constructor Delegation
+//------------------------------------------->
+
+- lets a constroctor invoke another constructor
+
+Coordinate::Coordinate() : Coordinate(99,99){}
+
+//Creates new rectangle at address r with 10, 20 as parameters
+Rectangle *r = new Rectangle(10, 20);
+
+r->getWidth(); //getWidth of object at address r
+
+
+-You can also put classes inside other classes
+* String is a class in C++
+
