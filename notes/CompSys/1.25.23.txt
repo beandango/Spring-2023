@@ -1,0 +1,30 @@
+//------------------------------------------->
+            Instruction Set
+//------------------------------------------->
+
+MIPS Architecture
+    Came out in the 80's froma group in Stanford
+    Used in embedded domain
+    risk5 similar to MIPS32
+    typical of many modern ISAs 
+
+Common Goal: FInd a language that makes it easy to build hardware,
+maximize performnace and minimize energy and consistent
+
+Register = sequence of 32 boxes (in 32 bit processor), you can put 1s and 0s in it and take them out
+located in processor
+
+similar to memory words in memory
+
+-Language of processor restricted
+
+a = b + c + d + e
+add a, b, c;
+add a, a, d;
+add a, a, e;
+
+Simplicity favors regularity
+
+Any variable in code is an address in memory. 
+When running code you go to those addresses, pull the values into processor,
+processor does the work, values sent back into memory
