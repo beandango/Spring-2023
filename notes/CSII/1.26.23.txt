@@ -1,0 +1,98 @@
+//------------------------------------------->
+                Friends of Classes
+//------------------------------------------->
+
+    int main()
+    {
+        something();
+        something();
+        something();
+        something();
+    }
+
+    int something()
+    {
+        static int n = 5; 
+        cout << n;
+        n++;
+        return n;
+    }
+
+static member variables: 
+    one variable shared among all instances of class
+
+static member functions:
+    can only access static member data
+
+//------------------------------------------->
+                Friends
+//------------------------------------------->
+
+- a function or a class
+- not a member of a class, but has access to private 
+members
+
+class MyClass
+{
+    ...
+};
+
+class NewClass
+{
+    public:
+        friend class MyClass;
+        ...      
+};
+
+Example:
+
+Rectangle r;
+    r.setWidth(5);
+    r.setLength(2);
+    //---output---
+    r.getWidth();
+    r.getLength();
+
+Another way:
+    Rectangle r;
+    cout<<"enter length and width";
+    cin>>a;
+    cout<<a;
+I/O is friend of Rectangle class
+
+class Rectangle
+{
+    public: 
+        Rectangle();
+        virtual ~Rectangle();
+        double getWidth();
+        double getLength();
+        void setWidth();
+        void setLength();
+        double getArea();
+
+        friend std::istream& operator >> (std::istream& in, Rectangle& a);
+        friend std::ostream& operator << (std::ostream& out, Rectangle& a);
+
+};
+
+std::istream& operator >> (std::istream& in, Rectangle& a)
+{
+    in = std::cin >> a.width >> a.length;
+    return in;
+}
+
+std::ostream& operator << (std::ostream& out, Rectangle& a)
+{
+    out = std::cout<<"Width: <<a.width<<" length: "<<a.length;
+    return out;
+}
+
+//------------------------------------------->
+            Operator Overloading
+//------------------------------------------->
+
+void operator=(const SomeClass &rval)
+
+- can only take existing operators to change meaning of it
+- cannot create new operators
