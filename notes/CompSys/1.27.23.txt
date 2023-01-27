@@ -1,0 +1,95 @@
+//------------------------------------------->
+                MIPS32
+//------------------------------------------->
+
+MIPs registers:
+    some are general purpose,
+    some are specific purpose
+
+Registers stored in processor, 
+instructions/data stored in memory
+
+Instructions brought from memory into processor
+Load word/Store word
+    Load: 32 bits loaded at once
+    Store: 32 bits stored at once
+
+Data transfer instructions: used to fetch operands 
+
+        32 bits = 4 bytes
+        4 bytes = word
+
+4 = important number
+
+Consider:
+    g = h + A[8];
+
+    - g is in register $s1, h is in $s2
+    - A is an array stored in memory, base address stored in $s3
+    - Compiler recognized that 8 is the index in the array 
+    and each word is 4 bytes
+    - A[8] = 32 bytes after base address 
+
+    lw $t0, 32($s3)        //add 32 to register
+    add $s1, $s2, $t0
+        load 32nd byte into t0
+        add s2 and t0, store in s1
+    
+//------------------------------------------->
+                Endianness
+//------------------------------------------->
+
+* Byte addressable means that the designers have allowed you to specify the 
+address of a byte in memory 
+
+* organized in words
+* 32-bit words organized as 4 bytes
+    64-bit have 8 bytes to a word
+
+3           12          100
+2           8           10
+1           4           101
+0           0           1
+word        byte        
+
+- Little Endian
+    largest byte address is left-most
+    4 3 2 1 0
+
+- Big Endian
+    Largest byte address is right-most
+    0 1 2 3 4
+
+Industry standard is mostly little Endian
+    but its good to be aware
+
+Operating on memory data requires loads and stores
+
+
+* Immediate operands    
+    - programs often use small constants (x + 12, x - 9, etc)
+    - MIPS supports a modification to the add instruction to 
+    allow this
+
+    make common case fast
+
+addi = add with immediate operand
+
+    addi $s3, $s3, 4
+    addi $t0, $s3, -3   //add negeative number instead of subtracting
+
+    add $s2, $s3, $zero  // used to move data from one register to another
+    add $t0, $s3, $zero
+
+Signed and Unsigned numbers
+
+Using 32 bits we can represent unsigned numbers in the 
+range 0 to 4,294,967,295
+
+Binary pattern is just patterns
+you interpret 
+
+when you choose specific bits, you are stuck with that range
+
+Overflow and Underflow happens in HW
+
