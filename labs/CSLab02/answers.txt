@@ -1,0 +1,25 @@
+Question 1: Tell the reason to have #include "MyLibrary.hpp" in MyLibrary.cpp
+    The function is defined in the hpp file and it is implemented in the cpp file. 
+    The cpp file needs to know that the function was defined somewhere and that it
+    exists
+Question 2: We have the prototype and the implementation code of the function averageGPA within
+name space CS2 in both hpp and cpp files. Is it fine if the prototype is not within name space CS2?
+    No. If you take prototype out of the namespace youd have to take everything else out of the namespace, 
+    including the function implementation itself and the struct. 
+Question 3: The struct Student is also within name space CS2. Is it ok to move Student out of CS2? If yes,
+change code appropriate to make the whole program work.
+    Like i said above, you can make it work by taking everything out of the namespace, but you can't
+    just take one piece out because they all depend on eachother.
+Question 4: What is the purpose of cin.ignore() at line 16 in fsnsMain.cpp?
+    Without it, the program doesn't give you a chance to enter in the string
+    for the name. cin.ignore clears the input buffer
+Question 5: What is the syntax difference between including system library and your own library?
+    System library is like this: #include <iostream> with the <> 
+    Own library is like this: #include "MyLibrary.hpp" with the filename quoted
+Question 6: What is the purpose of #ifndef and #define directives?
+    header guards so that files aren't included twice 
+Question 7: Are the variables used in #ifndef and #define such as the MYDATASTRUCTURE_HPP,
+MYLIBRARY_HPP be the same as file names?
+    Not necessarily, its just named intuitively to be the same as the files but really its just
+    a phrase that that header file is being defined as, and precompiler checks if those
+    headers have been defined before
