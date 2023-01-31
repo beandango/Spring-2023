@@ -1,0 +1,52 @@
+2's complement used for signed numbers 
+
+Unsigned: ignore the sign, dont worry about the sign 
+
+some operators work with signed or unsigned numbers
+
+fetching instruction =/= fetching operand 
+
+Instruction Register: cannot be used for anything other than 
+to hold the instruction (32 bit pattern)
+
+instruction fetch: go get the 32 bit pattern instruction,
+and put it in the IR register 
+
+MIPs R-Format
+    op | rs | rt | rd | shamt | funct |
+    6    5    5    5      5       6      bits
+- op: operation code (opcode)
+- rs: first source register number
+- rt: second source regsister number:
+- rd: destination register number:
+- shamt: shift amount (00000 for now)
+- funct: function code (extends opcode)
+
+opcode tells processor what format to look for
+
+add $t0, $s1, $s2 
+
+special |  $s1  | $s2   |  $t0  |   0    |  add   |
+   0    |   17  |  18   |   8   |   0    |  32    |
+000000  | 10001 | 10010 | 01000 | 000000 | 100000 |
+
+hexadecimal is more convenient to read
+
+MIPs I-Format
+    op | rs | rt | Constant or address |
+    6    5    5             16           bits
+constant: -2^15 to +2^15 -1 
+address: offset to base address in rs
+
+MIPs instructions: 
+    add
+    subtracting
+    addi
+    lw
+    sw
+    sh (store half word)
+    sb (store byte)
+    lh (load half)
+    lb (load byte)
+    lbu (load byte unsigned)
+    lui (load upper immediate - 16 bits shifted left by 16)
