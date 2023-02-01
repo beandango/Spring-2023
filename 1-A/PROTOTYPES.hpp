@@ -1,5 +1,5 @@
-#ifndef PROTOTYPES
-#define PROTOTYPES
+#ifndef PROTOTYPES_HPP
+#define PROTOTYPES_HPP
 
 #include <memory>
 
