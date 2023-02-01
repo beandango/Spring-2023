@@ -1,0 +1,65 @@
+Stored program execution
+
+Implicit in the stored program idea is the need to have a 
+special register
+    - Program counter (PC)
+    - Always holds the address of the next instruction that
+      the processor must execute
+
+//------------------------------------------->
+          Logical instructions
+//------------------------------------------->
+  useful to invert bits in a word
+    - change 0 to 1, 1 to 0
+
+  MIPS has NOR 3-operand instruction
+    a NOR b == NOT (a or b)
+
+    nor $t0, $t1, $zero //just flip the bits
+
+    $t1 1111 1111 0011 1100 0000 0000
+    $t0 0000 0000 1100 0011 1111 1111
+
+  Shift Right/Left logical: srl, slr
+    -shifts bits
+
+MIPS provides 3 instructions to support 
+"branching execution"
+
+- beq rs, rt, L1 #Branch on Equal
+- bne rs, rt, L1 #Branch Not Equal
+- J L1           #Unconditional jump
+
+Consider:
+ while (save[i]==k) i += 1;
+
+  L1: sll  $t1, $s3, 2
+      add  $t1, $t1, $s6
+      lw   $t0, 0($t1)¸
+      bne  $t0, $s5, LN
+      addi $s3, #s3, 1
+      j    L1
+  LN: ...
+
+Basic Block:
+  L1: sll  $t1, $s3, 2
+      add  $t1, $t1, $s6
+      lw   $t0, 0($t1)¸
+Sequence of instructions with:
+  end in a branch execution
+  no branch targets
+
+slt - #set on less than
+slti -#set on less than immediate
+
+slt rd, rs, rt
+  if (rs < rt) rs = 1; else rd = 0
+
+slti rt, rs, constant
+  if(rs < constant) rt = 1; else rt = 0;
+
+beq, bne, slt, slti
+ =   =/=   <    <(num)
+
+MSB 1 represents negative number, always less than MSB 0
+
