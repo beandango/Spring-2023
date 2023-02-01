@@ -1,0 +1,59 @@
+//------------------------------------------->
+            Operator Overloading
+//------------------------------------------->
+
+Review of constructor: 
+    Purpose: to setup an instance of an object
+
+    Given a class Window, with integer data members width, height,
+    xPos, yPos
+
+        1. a constructor accepting 4 parameters, each assigned 
+        to corresponding values of the object
+
+                Window::Window(int h, int w, int x, int y)
+                {
+                    height = h; //this->height = h;
+                    width = w; //this->width = w;
+                    xPos = x;
+                    yPos = y;
+                }
+
+        2. a constructor accepting 2 parameters, height and width 
+        set to corresponding parameters, and xPos yPos set to 0
+
+                Window::Window(int h, int w)
+                {
+                    height = h;
+                    width = w;
+                    xPos = 0;
+                    yPos = 0;
+                }
+
+class complex
+{
+    double real, imagl
+    public:
+        complex(double r, double i) :
+        real(r), imag(i) {}
+
+        //overloading operators
+        complex operator+(const complex & b);
+        complex operator*(const complex & b);
+        complex& operator=(const complex & b);
+
+        friend istream& operator>>(istream& in, complex& target);
+        ...
+};
+
+assignment chains:
+    a = b = c
+        -----   assigns first
+    -----       assigns second
+
+        sets a and b equal to c
+
+
+
+
+
