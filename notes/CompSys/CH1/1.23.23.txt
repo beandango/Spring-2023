@@ -28,7 +28,7 @@ nroot(Tau_1 ^n Execution Time ratio_i)
 SPEC Power benchmark
 
 Pitfall: Amdahl's law
-* Imporving an aspect of a computer and expecting a proportional improvement in overall performance
+* Improving an aspect of a computer and expecting a proportional improvement in overall performance
 
     T_improved = T_affected/Improvement factor + T_unaffected
 
