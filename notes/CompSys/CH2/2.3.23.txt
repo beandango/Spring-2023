@@ -1,0 +1,16 @@
+jal jump and link 
+
+jr jump register
+
+    jr $ra 
+    copies $ra to program counter
+
+    can also be use for computed jumps
+    - like for case/switch statements
+
+int leaf_example (int g, h, i, j)
+( int f;
+    f = (g+h) - (i + j);
+    return f;
+)
+
