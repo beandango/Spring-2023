@@ -1,0 +1,16 @@
+bool operator==(double x, complex a)
+{
+    return (a.real == x)
+        && (a.imag == 0);
+}
+
+
+//------------------------------------------->
+
+//------------------------------------------->
+
+int main()
+{
+    IntArray a;
+    IntArray a.size();
+}

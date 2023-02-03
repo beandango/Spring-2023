@@ -1,0 +1,39 @@
+1. Why is it not needed to have #include <string> in file Course.cpp
+    Because Course.cpp includes Course.h, which already includes <string>
+
+2.  a. What is the difference between inline function and regular function? 
+        Inline function is written inside of the class
+        and it doesnt count as a function call.
+        It basically just inserts the code into where its "called"
+
+    b. In what circumstances you want to use inline function?
+        Because it just inserts the code instead of calling
+        a function, its best to use inline functions only for
+        small, simple functions to not make the file too chunky
+
+3. Why this-> is used in the functions setCourseName and setDepartment while it is not used in the
+function setCredit?
+    Because the parameters shared a name with a member of the Course class,
+    so you use this-> to specify that you mean to assign something to the 
+    class member, not the parameter
+
+4. In step 4, according to the message displayed,
+    a. Please tell at which statement or line in mainCourseLab.cpp, 
+    the default constructor is called?
+        line 15
+
+    b. Please tell at which statement or line in mainCourseLab.cpp, the destructor is called?
+        line 22
+
+5. A class can have more than one constructor. When a single instance is created from the class,
+how many constructors are invoked?
+    Just 1, whichever one matches the amount of parameters that were used in creating that instance
+
+6. In step 6, it demonstrates the initialization of the object. At the declaration statement 22 and
+26, which constructor is invoked?
+    
+
+7. In step 7,
+    a. which statement in mainCourseLab.cpp causes the call of default constructor?
+    b. when the pointer cs2Ptr is out of the scope, is the object created through new operator
+    destroyed? If no, provide a solution to the issue
