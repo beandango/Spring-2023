@@ -1,22 +1,35 @@
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
 
+#include "Point.h"
+
 class Rectangle
 {
-    Rectangle();
-    ~Rectangle();
-
+    
     private:
-        int x1, x2, x3, x4, y1, y2, y3, y4;
-        double line1Len, line2Len, line3Len, line4Len;
+        Point topLeft, topRight, bottomLeft, bottomRight;
+        double l, w;
     public:
-        bool square();
+        Rectangle(Point, Point, Point, Point);
+        void setLenWid();
         double area();
-        int length();
-        int width();
-        void setCoords();
+        bool square();
+        double perimeter();
 
-        
+        void setW(double n)
+        { w = n; }
+        void setL(double n)
+        { l = n; }
+        double length()
+        { return l; }
+        double width()
+        { return w; }
+
+        Point getBottomLeft();
+        Point getBottomRight();
+        Point getTopLeft();
+        Point getTopRight();
+
 };
 
 #endif //RECTANGLE_H
