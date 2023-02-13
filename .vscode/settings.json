@@ -76,5 +76,6 @@
         "__functional_base": "cpp",
         "algorithm": "cpp",
         "functional": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
