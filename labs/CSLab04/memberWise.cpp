@@ -17,13 +17,13 @@ int main(){
         cs2.setCourseName(name);
         cs2.setDepartment(depart);
         cs2.setCredit(4);
-        cs2.setNumberOfScores(3);
+        cs2.setNumberOfScores(3); //set three scores
         cs2.setScore(0, 95);
         cs2.setScore(1, 97);
         cs2.setScore(2, 100);
         printCourse(cs2);
         cout<<endl;cout<<endl;
-        cs2.setNumberOfScores(2);
+        cs2.setNumberOfScores(2); //reset scores
         cs2.setScore(0, 60);
         cs2.setScore(1, 70);
         cout<<"After reset scores:\n";
@@ -36,7 +36,7 @@ int main(){
         printCourse(previousCS2);
         cout<<"\nnextCS2 after assigned:\n";
         printCourse(nextCS2);
-
+        //change a score in cs2
         cs2.setScore(0, 100);
         cout<<"\ncs2 after score at pos 0 is changed:\n";
         printCourse(cs2);
@@ -51,6 +51,7 @@ int main(){
 }
 
 void printCourse(const ComputerScience::Course& a){
+    //display the course info
     cout<<"\""<<a.getCourseName()<<"\" of "
         <<a.getDepartment()<<" Department has "
         <<a.getCredit()<<" credits\n"

@@ -104,9 +104,12 @@ namespace ComputerScience
             freeMemory();
         }
         else{
-            freeMemory();
-            scores = new int[number];
-            scoreNumber = number;
+            //do not immediately allocate the memory
+            //this function is public. It can be called multiple times.
+            //when it is called, need to handle previously allocated memory
+            freeMemory(); //free memory if ever allocated
+            scores = new int[number]; //allocate and assign the address to scores
+            scoreNumber = number; //set the array size
         }
     }
 
@@ -116,6 +119,7 @@ namespace ComputerScience
 
     void Course::setScore(int index, int aScore){
         if(index < 0 || index >= scoreNumber){
+            //out of range
             std::cout<<"the index is out of range";
         }
         else{
@@ -125,6 +129,7 @@ namespace ComputerScience
 
     int Course::getScore(int index) const{
         if(index < 0 || index >= scoreNumber){
+            //out of range
             std::cout<<"the index is out of range";
             return -1;
         }
@@ -134,7 +139,7 @@ namespace ComputerScience
     }
 
     double Course::getAverageScore() const{
-        if(scoreNumber == 0) return -1;
+        if(scoreNumber == 0) return -1; //no score to average
         double total = 0;
         for(int i=0; i<scoreNumber; i++){
             total += scores[i];
