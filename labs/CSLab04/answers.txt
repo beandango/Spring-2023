@@ -1,0 +1,22 @@
+1. Did you copy the comments from demo program to your own? If not, points will be
+deducted.
+    Yes
+2. Why should the program initialize scoreNumber to 0 and scores to nullptr in constructors?
+Can they be initialized somewhere else?
+    When scoreNumber is 0, there basically is no
+    array, so we dont want scores to be allocated
+    to some random address. You probably can just not initialize them until you need them,
+    but that might make it less readable
+3. The member function freeMemory() is placed in private section. Why?
+    It's an internal function. There's no need
+    for it to not be private, so, it's private.
+4. In step 2, we see the behavior of cs2, previousCS2 and nextCS2 is not desired. The program
+crashed at the end. Please explain
+    memberwise assignment made cs2.scores, previouscs2.scores,
+    and nextcs2.score point to the same array.
+    So, when cs2 is destroyed, allocated memory is freed. 
+    And then when previouscs2 and nextcs2 try to 
+    free their memory, well, its pointing to the 
+    one that was already freed.
+5. When member variables contain pointers, what a class must have?
+    Destructor, overloaded = operator, copy constructor
