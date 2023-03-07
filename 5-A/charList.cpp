@@ -10,6 +10,7 @@
 
 // Your coding required here 
 #include "CharList.hpp"
+#include <iostream>
 
 
 //**************************************************
