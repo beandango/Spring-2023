@@ -1,7 +1,7 @@
 // This program demonstrates simple operations
 // on a linked list.
 #include <iostream>
-#include "charList.hpp"
+#include "CharList.hpp"
 #include "charList.cpp"
 
 int main()
