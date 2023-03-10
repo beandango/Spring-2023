@@ -1,0 +1,53 @@
+Did you copy the comments from demo program to your own? If not, points will be
+deducted.
+    yes
+2. How many constructors in the declaration IntArray(int length = 0); ?
+    2, one where you specify the length, and 
+    a default constructor
+3. Change line 16 in IntArray.h from int& operator[](int i); to int operator[](int i); and change
+line 80 int& IntArray::operator[](int i){ to int IntArray::operator[](int i){ accordingly. Test
+subscript operator again. Why the return type has to be the reference?
+    it has to be referenced because we want to
+    be able to modify the values in the array
+4. Change the return type from IntArray to IntArray& in line 18 (operator + overloading) of
+IntArray.h and change return type from IntArray to IntArray& in line 88 of IntArray.cpp
+accordingly. Run the program and see what happens? Why?
+    a[0] and b[2] becomes unassignable. When we 
+    returned "merged" from the + operator
+    with reference, it returned the memory
+    location instead of the array? I think
+5. In the program, you see that lots of functions return the reference of IntArray. Why?
+    taking += as an example, the function needs 
+    to modify an existing array (it takes the
+    existing array and adds more stuff to it), 
+    so we need the reference
+6. If you are asked to write a member function
+IntArray& insert(int i, int val); //insert val at the position i
+Copy your code below.
+
+IntArray& IntArray::insert(int i, int val) {
+    //Check that i is a valid position in the array.
+    if(i < 0 || i > length) {
+        throw std::out_of_range("Invalid index");
+    }
+
+    //Increase the size of the array by 1.
+    int* newArr = new int[length + 1];
+
+    //Copy the values from the old array to the new array,
+    //inserting the new value at position i.
+    for (int j = 0; j < i; j++) {
+        newArr[j] = myArray[j];
+    }
+    newArr[i] = val;
+    for (int j = i + 1; j < length + 1; j++) {
+        newArr[j] = myArray[j - 1];
+    }
+    //Delete the old array and replace it with the new array.
+    delete[] myArray;
+    myArray = newArr;
+    length++;
+
+    //Return a reference to the updated array.
+    return *this;
+}
