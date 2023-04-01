@@ -1,0 +1,45 @@
+1. Did you provide or copy the comments? If not, points will be deducted.
+    yes
+2. In three friend functions, the list node type must be expressed as IntArray::ListNode. Why?
+    ListNode type is a custom type defined within the IntArray class, so i need to tell the compiler to look for the type ListNode defined in IntArray, and not 
+
+3. With your opinion, in which implementation the following functions have better
+performance? Put X in the box if you think it has better performance clearly. Put S in the box
+if they are the same. Put V to those difficult to decide, please explain.
+
+function                                        |   Array     |     Linked List     |
+------------------------------------------------------------------------------------|
+|int& operator[](int i);                        |             |         X           | 
+------------------------------------------------------------------------------------
+|IntArray& operator=(const IntArray& r);        |     X       |                     |
+------------------------------------------------------------------------------------
+|IntArray operator+(const IntArray& r) const;   |     X       |                     |
+------------------------------------------------------------------------------------
+|IntArray operator+(int) const;                 |     X       |                     |
+------------------------------------------------------------------------------------
+|IntArray& operator+=(const IntArray& r);       |             |         X           |
+------------------------------------------------------------------------------------
+|IntArray& operator=(const IntArray& r);        |      S      |         S           |
+------------------------------------------------------------------------------------
+|IntArray operator+(const IntArray& r) const;   |      V      |         V           |
+------------------------------------------------------------------------------------
+|IntArray& operator+=(int);                     |             |         X           |
+------------------------------------------------------------------------------------
+|friend std::ostream& operator<<(std::ostream   |      X      |                     |
+|& out, const IntArray& r);                     |             |                     |
+------------------------------------------------------------------------------------
+|friend std::istream& operator >> (std::istream |      X      |                     |
+|& in, IntArray& r);                            |             |                     |
+------------------------------------------------------------------------------------
+|friend IntArray operator+(int, const IntArray&)|      X      |                     |
+-------------------------------------------------------------------------------------
+
+V* These are difficult because theyre not exactly the same but id have to go through all of these function calls to compare and thats just a lot of nuance to consider, they look about the same but its hard to decide for sure
+
+S* these are basically identical, just freememory is replaced with removeNodes which i think have similar performance
+
+4. Overrall, which implementation do you prefer?
+    I could just be misunderstanding some things but overall i just perfer array, it makes more sense to me. 
+
+5. List three items that costs you most of the time
+    probably addNodes, copyContent, operator[]
