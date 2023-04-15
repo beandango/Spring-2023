@@ -1,0 +1,26 @@
+1. Did you put in all comments in your code? If not, credits will be deducted.
+
+    yes
+
+2. Why does not the iterator class have destructor?
+
+    pointer p always points to an existing node in IntArray. It
+    does not need to create a node, nor destroy a node
+
+3. What is the syntax difference between dereferencing operator * overloading and
+multiplication operator * overloading?
+
+    //dereference operator
+    A operator *() { /*...*/ };
+    //multiply operator           
+    A operator *(const A&) { /*...*/ };
+
+4. Why can not use the address of last node + 1 in container.end() function?
+
+    there is not an address for the end() it is just used by the container so you can't use it like that
+
+5. In our implementation, if the linked list is empty, the container.end() returns an iterator
+with the member pointer p nullptr. Would this cause problem?
+
+    no? i dont think it does
+
